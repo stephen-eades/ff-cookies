@@ -14,7 +14,7 @@
 
 4. Configure Nginx as a Reverse Proxy (Optional):
 
-`/etc/nginx/sites-available/myflaskapp`
+**/etc/nginx/sites-available/myflaskapp**
 
 `server {
     listen 80;
