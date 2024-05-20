@@ -1,5 +1,6 @@
 # ff-cookies
 
+## Configuring the Server
 1. Install Required Packages:
 - `sudo apt update`
 - `sudo apt install python3-pip python3-venv`
@@ -31,3 +32,5 @@
 - `sudo ln -s /etc/nginx/sites-available/myflaskapp /etc/nginx/sites-enabled`
 - `sudo nginx -t`
 - `sudo systemctl restart nginx`
+
+## Accessing the Server
