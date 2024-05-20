@@ -19,7 +19,6 @@
 `server {
     listen 80;
     server_name your_domain_or_IP;
-
     location / {
         proxy_pass http://127.0.0.1:5000;
         proxy_set_header Host $host;
