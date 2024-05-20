@@ -10,7 +10,7 @@
 - `pip install Flask requests`
 
 3. Run the Flask App
-- `python app.py
+- `python app.py`
 
 4. Configure Nginx as a Reverse Proxy (Optional):
 
