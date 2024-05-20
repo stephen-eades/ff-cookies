@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "ESPN Cookie Viewer",
+  "version": "1.0",
+  "description": "Displays SWID and espn_s2 cookies for espn.com",
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "https://www.espn.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
