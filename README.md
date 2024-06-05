@@ -13,7 +13,13 @@
 3. Run the Flask App
 - `python app.py`
 
-4. Configure Nginx as a Reverse Proxy (Optional):
+4. Ensure the port is open
+- `sudo ufw allow 5000/tcp`
+
+5. Check if host machine can reach server
+- `curl http://your_server_ip_here:5000`  
+
+6. Configure Nginx as a Reverse Proxy (Optional):
 
 **/etc/nginx/sites-available/myflaskapp**
 
