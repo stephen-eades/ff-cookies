@@ -35,7 +35,7 @@
 
 ## Accessing the Server
 1. Login to the server (credentials required)
-2. Navigate to /home/xyz_admin/
+2. Navigate to `/home/xyz_admin/`
 3. Activate the virtual environment: `source ff-cookies/bin/activate`
-4. Navigate to /home/repos/ff-cookies/
-5. Star the server with python3 app.py
+4. Navigate to `/home/repos/ff-cookies/`
+5. Star the server: `python3 app.py`
