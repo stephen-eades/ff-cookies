@@ -27,7 +27,7 @@ def get_data():
         
 
         # Make the request
-        response = requests.get(url=base_url+current_season_endpoint, verify=False)
+        response = requests.get(url=base_url+current_season_endpoint, verify=False, cookies={'swid': swid, 'espn_s2': espn_s2})
         espn_data = response.json()
         
         # Check if data is valid (this is just a placeholder condition)
