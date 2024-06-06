@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/current', methods=['POST'])
-def get_data():
+def get_current_data():
     try:
         # Get the league id, swid, and espn_s2 values from the POST body
         data = request.get_json()
@@ -41,7 +41,7 @@ def get_data():
     
 
 @app.route('/historic', methods=['POST'])
-def get_data():
+def get_historic_data():
     try:
         # Get the league id, swid, and espn_s2 values from the POST body
         data = request.get_json()
