@@ -1,26 +1,40 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
+import datetime
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/data', methods=['GET'])
+@app.route('/data', methods=['POST'])
 def get_data():
     try:
-        # Simulate data fetching
-        # For example, make a request to an external API
-        # response = requests.get('http://external-api-url')
-        # data = response.json()
+        # Get the league id, swid, and espn_s2 values from the POST body
+        data = request.get_json()
+        league_id = data.get('leagueId')
+        swid = data.get('swid')
+        espn_s2 = data.get('espn_s2')
 
-        # Placeholder data for example purposes
-        data = {"key1": "value1", "key2": "value2"}
+        # Check if all parameters are provided
+        if league_id is None or swid is None or espn_s2 is None:
+            return jsonify({'error': 'Missing one or more parameters'}), 400
+
+        # Define variables for ESPN fantasy api request
+        current_year = str(datetime.datetime.now().year)
+        base_url = 'https://lm-api-reads.fantasy.espn.com/apis/v3/'
+        current_season_endpoint = 'games/ffl/seasons/'+'2019'+'/segments/0/leagues/'+league_id+'?view=mMatchupScore&view=mTeam&view=mSettings'
+        historic_season_endpoint = 'games/ffl/leagueHistory/'+league_id+'?view=mLiveScoring&view=mMatchupScore&view=mRoster&view=mSettings&view=mStandings&view=mStatus&view=mTeam&view=modular&view=mNav&seasonId='
+        
+
+        # Make the request
+        response = requests.get(url=base_url+current_season_endpoint, verify=False)
+        espn_data = response.json()
         
         # Check if data is valid (this is just a placeholder condition)
-        if not data:
-            return jsonify({'error': 'No data found'}), 404
+        if not espn_data:
+            return jsonify({'error': 'No espn data found'}), 404
 
-        return jsonify(data), 200
+        return jsonify(espn_data), 200
 
     except requests.RequestException as e:
         return jsonify({'error': str(e)}), 500
