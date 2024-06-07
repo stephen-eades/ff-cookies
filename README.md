@@ -54,13 +54,11 @@
 `[Unit]
 Description=Flask Application
 After=network.target
-
 [Service]
 User=yourusername
 WorkingDirectory=/path/to/your/flaskapp
 ExecStart=/usr/bin/python3 /path/to/your/flaskapp/app.py
 Restart=always
-
 [Install]
 WantedBy=multi-user.target`
 
