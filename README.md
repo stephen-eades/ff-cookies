@@ -46,3 +46,4 @@
 3. Activate the virtual environment: `source ff-cookies/bin/activate`
 4. Navigate to `/home/repos/ff-cookies/`
 5. Star the server: `python3 app.py`
+6. Set the server to run in the background: `sudo nohup python3 app.py > log.txt 2>&1 &`
