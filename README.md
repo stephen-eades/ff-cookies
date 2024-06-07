@@ -46,4 +46,27 @@
 3. Activate the virtual environment: `source ff-cookies/bin/activate`
 4. Navigate to `/home/repos/ff-cookies/`
 5. Star the server: `python3 app.py`
-6. Set the server to run in the background: `sudo nohup python3 app.py > log.txt 2>&1 &`
+
+## Setup the Server to Run as a Service
+1. Create a systemd Service File: `sudo nano /etc/systemd/system/flaskapp.service`
+2. Add the following code to the flaskapp.service file you just made:
+   
+`[Unit]
+Description=Flask Application
+After=network.target
+
+[Service]
+User=yourusername
+WorkingDirectory=/path/to/your/flaskapp
+ExecStart=/usr/bin/python3 /path/to/your/flaskapp/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target`
+
+3. Reload systemd and Start the Service
+- `sudo systemctl daemon-reload`
+- `sudo systemctl start flaskapp.service`
+- `sudo systemctl enable flaskapp.service`
+
+4. Check the Status of the Service: `sudo systemctl status flaskapp.service`
