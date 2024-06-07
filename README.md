@@ -68,3 +68,4 @@ WantedBy=multi-user.target`
 - `sudo systemctl enable flaskapp.service`
 
 4. Check the Status of the Service: `sudo systemctl status flaskapp.service`
+5. Need to debug? Use: `journalctl -u flaskapp.service -b`
